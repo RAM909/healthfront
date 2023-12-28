@@ -1,0 +1,99 @@
+.Login_page_container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Login_card{
+    width: 95vw;
+    max-width: 400px;
+    background: #F0F0F0;
+    /* height: 80vh; */
+    /* border: 2px solid rgba(9, 3, 67, 0.817); */
+    border-radius: 27px;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.Login_title{
+    text-align: center;
+    color: #0d0d0e;
+}
+
+.formBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formBox .inputBox {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 25px 0;
+}
+
+.inputBox input {
+  width: 100%;
+  height: 100%;
+  background: transparent !important;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #0d0d0e;
+  padding-right: 23px;
+  border-bottom: 2px solid #0d0d0e;
+  transition: 0.5s;
+}
+
+.inputBox input:focus,
+.inputBox input:valid {
+  border-bottom-color: #0d0d0e;
+}
+
+.inputBox label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #0d0d0e;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.inputBox input:focus ~ label,
+.inputBox input:valid ~ label {
+  top: -5px;
+  color: #0d0d0e;
+}
+
+.inputBox i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.inputBox input:focus ~ i,
+.inputBox input:valid ~ i {
+  color: #0ef;
+}
+
+.Login_btn{
+    font-size: 25px;
+    background-color: #0d0d0e;
+    padding: 10px 20px;
+    outline: none;
+    border: none;
+    color: #96e2f2;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 20px;
+}

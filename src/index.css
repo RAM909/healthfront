@@ -1,0 +1,21 @@
+  @import url('https://fonts.googleapis.com/css2?family=Cookie&family=Outfit:wght@400;700&family=Poppins:wght@200;300;400;500;600&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Cookie', cursive;
+    font-family: 'Outfit', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: url(./Assests/back2.avif);
+    background-size: cover;
+    background-position: center;
+
+
+  }
