@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./DataTable.css";
 import axios from 'axios';
-const host = "https://healthbackend-l4fk.onrender.com"
+const host = "http://localhost:5000"
 
 
 const DataTable = ({ isLoggedIn }) => {

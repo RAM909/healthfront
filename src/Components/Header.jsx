@@ -1,13 +1,29 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+const host = "http://localhost:5000"
+
 
 const Header = ({ isLoggedIn, handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [data, setData] = useState([]);
   const [showEditForm, setShowEditForm] = useState(false);
   const closeForm = useRef(null);
   const Navigation = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get(`${host}/api/patient`)
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const handleLoginFormSubmit = (e) => {
     e.preventDefault();
@@ -26,6 +42,13 @@ const Header = ({ isLoggedIn, handleLogin }) => {
     Navigation("/")
     // window.location.reload();
   };
+  const Exporthandle = () =>{
+    const csvData = encodeURIComponent(data.map(row => Object.values(row).join(',')).join('\n'));
+    const link = document.createElement('a');
+    link.href = `data:text/csv;charset=utf-8,${csvData}`;
+    link.download = 'patient_data.csv';
+    link.click();}
+  
 
   // useEffect(() => {
   //   const closeFormHandler = (event) => {
@@ -42,10 +65,16 @@ const Header = ({ isLoggedIn, handleLogin }) => {
   return (
     <div className="app__login">
       {/* {isLoggedIn ? ( */}
-          <h1>HEALTH CARE DEVICE</h1>
-        <div className="app__login_div">
-          <h2 onClick={logouthandle}>Logout</h2>
-        </div>
+      <h1>HEALTH CARE DEVICE</h1>
+      <div className="app__login_div">
+
+        <h2 onClick={logouthandle}>Logout</h2>
+      </div>
+      <div className="app__extract_div">
+
+        <h2 onClick={Exporthandle}>Extract Data</h2>
+      </div>
+
 
       {/* {showEditForm && (
         <div className="edit-form overlay">
